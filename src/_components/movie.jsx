@@ -5,7 +5,7 @@ class Movie extends Component {
     render() {
         console.log('props ', this.props);
         return (
-            <div>
+            <div className="movie">
                 movie
                 {this.props.value}
             </div>

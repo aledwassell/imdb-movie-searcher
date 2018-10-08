@@ -30,8 +30,18 @@ class Movies extends Component {
     render() {
         return (
             <React.Fragment>
-                <button onClick={this.handleGetMovies} className={this.getBtnClass()}>GET DATA</button>
-                {this.state.movies.map(m => <Movie key={m.id} value={m.title}/>)}
+                <div className="main">
+                    <div className="movie-container">
+                        {this.state.movies.map(m =>
+                            <Movie key={m.id} value={m.title}>
+                                <h4>Title: </h4>
+                            </Movie>
+                        )}
+                    </div>
+                    <div className="controls">
+                        <button onClick={this.handleGetMovies} className={this.getBtnClass()}>GET DATA</button>
+                    </div>
+                </div>
             </React.Fragment>
         );
     }
