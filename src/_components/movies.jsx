@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Movie from './movie';
+import Controls from './controls';
 import axios from 'axios';
 
 class Movies extends Component {
@@ -41,6 +42,7 @@ class Movies extends Component {
                     <div className="controls">
                         <button onClick={this.handleGetMovies} className={this.getBtnClass()}>GET DATA</button>
                     </div>
+                    <Controls />
                 </div>
             </React.Fragment>
         );

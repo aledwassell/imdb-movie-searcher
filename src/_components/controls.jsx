@@ -6,7 +6,7 @@ class Controls extends Component {
         console.log('props ', this.props);
         return (
             <div>
-
+                controls
             </div>
         );
     }
