@@ -7,7 +7,8 @@ class Movies extends Component {
     //state holds all the data the app is going tuse, this data can be mutated using setState()
     state = {
         movies: [],
-        moviesUrl: 'http://www.omdbapi.com/?apikey=6b19a580&s=batman'
+        OMDb_API_key: process.env.REACT_APP_OMDB_API_KEY,
+        moviesUrl: 'http://www.omdbapi.com/?apikey={}&s=batman'
     };
 
     //instead of bind this to the handleGetMovies method
