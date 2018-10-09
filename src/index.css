@@ -31,12 +31,18 @@ code {
   width: 100%;
   grid-template-areas: "left right";
   grid-template-columns: 1fr 1fr;
+  background: no-repeat center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 .movie div{
   grid-area: left;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  padding: 0 0 15px 15px;
+  align-items: flex-end;
+  color: #ffffff;
 }
 
 .nav{
@@ -44,5 +50,6 @@ code {
   display: flex;
   height: 100%;
   background-color: #ffffff;
+  align-items: center;
   justify-content: space-around;
 }

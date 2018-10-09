@@ -7,8 +7,7 @@ class Movies extends Component {
     //state holds all the data the app is going tuse, this data can be mutated using setState()
     state = {
         movies: [],
-        OMDb_API_key: process.env.REACT_APP_OMDB_API_KEY,
-        moviesUrl: 'http://www.omdbapi.com/?apikey={OMDb_API_key}&s=batman'
+        moviesUrl: `http://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&s=batman`
     };
 
     //instead of bind this to the handleGetMovies method
@@ -35,7 +34,7 @@ class Movies extends Component {
                 <div className="main">
                     <div className="movie-container">
                         {this.state.movies.map(m =>
-                            <Movie key={m.id} value={m.Title}/>
+                            <Movie key={m.imdbID} title={m.Title} poster={m.Poster} type={m.Type}/>
                         )}
                     </div>
                     <Nav getMovies={this.handleGetMovies} />
