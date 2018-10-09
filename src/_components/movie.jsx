@@ -1,12 +1,11 @@
 import React, {Component} from 'react';
 
 class Movie extends Component {
-    state = {}
+    state = {};
     render() {
         var divStyle = {
             backgroundImage: 'url(' + this.props.poster + ')'
         };
-        console.log('props ', this.props);
         return (
             <div style={divStyle} className="movie">
                 <div>

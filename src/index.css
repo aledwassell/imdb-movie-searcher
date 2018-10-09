@@ -16,10 +16,18 @@ code {
 .main{
   display: grid;
   height: 100vh;
-  grid-template-rows: auto 50px;
+  grid-template-rows: 50px auto 50px;
   grid-template-columns: 1fr;
-  grid-template-areas: "movies" "nav";
+  grid-template-areas: "search" "movies" "nav";
 }
+
+.search{
+  grid-area: search;
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+}
+
 .movie-container{
   display: flex;
   flex-direction: column;

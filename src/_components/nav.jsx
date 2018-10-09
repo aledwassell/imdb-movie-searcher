@@ -16,18 +16,19 @@ class Nav extends Component {
                 {/*{this.state.navIcons.map(i => <FontAwesomeIcon key={i.id} icon={i.icon} iconName={i.icon} />)}*/}
                 <FontAwesomeIcon icon={faSearch} />
                 <FontAwesomeIcon icon={faStar} />
-                <FontAwesomeIcon onClick={this.props.getMovies} icon={faPlus} />
+                <FontAwesomeIcon icon={faPlus} />
                 <FontAwesomeIcon icon={faBell} />
                 <FontAwesomeIcon icon={faSlidersH} />
                 {/*<button onClick={this.handleGetMovies} className={this.getBtnClass()}>GET DATA</button>*/}
             </div>
         );
     }
-    getBtnClass() {
-        let classes = "white br-pill pa3 bn bg-";
-        classes += (this.state.count === 0) ? 'yellow' : 'green';
-        return classes;
-    }
+    //Grab classes to style elements, I was going to include a button to get the data, but I removed it
+    // getBtnClass() {
+    //     let classes = "white br-pill pa3 bn bg-";
+    //     classes += (this.state.count === 0) ? 'yellow' : 'green';
+    //     return classes;
+    // }
 }
 
 export default Nav;
