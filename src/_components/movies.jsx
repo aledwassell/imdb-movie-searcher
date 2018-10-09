@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
 import Movie from './movie';
-import Controls from './controls';
+import Nav from './nav';
 import axios from 'axios';
 
 class Movies extends Component {
     //state holds all the data the app is going tuse, this data can be mutated using setState()
     state = {
         movies: [],
-        moviesUrl: 'https://jsonplaceholder.typicode.com/todos'
+        moviesUrl: 'http://www.omdbapi.com/?apikey=6b19a580&s=batman'
     };
 
     //instead of bind this to the handleGetMovies method
@@ -22,8 +22,8 @@ class Movies extends Component {
         axios.get(this.state.moviesUrl)
             .then(resp => {
                 console.log(resp);
-                for (let i = 0; i < 10; i++){
-                    ts.push(resp.data[i]);
+                for (let i = 0; i < 3; i++){
+                    ts.push(resp.data.Search[i]);
                 }
                 this.setState({movies: ts});
             });
@@ -34,25 +34,20 @@ class Movies extends Component {
                 <div className="main">
                     <div className="movie-container">
                         {this.state.movies.map(m =>
-                            <Movie key={m.id} value={m.title}>
-                                <h4>Title: </h4>
-                            </Movie>
+                            <Movie key={m.id} value={m.Title}/>
                         )}
                     </div>
-                    <div className="controls">
-                        <button onClick={this.handleGetMovies} className={this.getBtnClass()}>GET DATA</button>
-                    </div>
-                    <Controls />
+                    <Nav getMovies={this.handleGetMovies} />
                 </div>
             </React.Fragment>
         );
     }
 
-    getBtnClass() {
-        let classes = "white br-pill pa3 bn bg-";
-        classes += (this.state.count === 0) ? 'yellow' : 'green';
-        return classes;
-    }
+    // getBtnClass() {
+    //     let classes = "white br-pill pa3 bn bg-";
+    //     classes += (this.state.count === 0) ? 'yellow' : 'green';
+    //     return classes;
+    // }
 }
 
 export default Movies;

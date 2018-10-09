@@ -4,7 +4,6 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import Movies from './_components/movies';
-import axios from 'axios';
 import 'tachyons/css/tachyons.css';
 
 ReactDOM.render(<Movies />, document.getElementById('root'));

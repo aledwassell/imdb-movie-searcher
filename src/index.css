@@ -15,9 +15,10 @@ code {
 
 .main{
   display: grid;
-  grid-template-rows: 75px auto auto;
+  height: 100vh;
+  grid-template-rows: auto 50px;
   grid-template-columns: 1fr;
-  grid-template-areas: "top" "movies" "control";
+  grid-template-areas: "movies" "nav";
 }
 .movie-container{
   display: flex;
@@ -26,11 +27,22 @@ code {
 }
 .movie{
   flex: 1;
+  display: grid;
+  width: 100%;
+  grid-template-areas: "left right";
+  grid-template-columns: 1fr 1fr;
+}
+.movie div{
+  grid-area: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.controls{
-  grid-area: control;
+.nav{
+  grid-area: nav;
   display: flex;
-  justify-content: space-between;
-  padding: 5px;
+  height: 100%;
+  background-color: #ffffff;
+  justify-content: space-around;
 }

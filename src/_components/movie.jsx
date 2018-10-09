@@ -6,8 +6,10 @@ class Movie extends Component {
         console.log('props ', this.props);
         return (
             <div className="movie">
-                movie
-                {this.props.value}
+                <div>
+                    movie
+                    {this.props.value}
+                </div>
             </div>
         );
     }
