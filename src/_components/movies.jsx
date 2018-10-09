@@ -8,7 +8,7 @@ class Movies extends Component {
     state = {
         movies: [],
         OMDb_API_key: process.env.REACT_APP_OMDB_API_KEY,
-        moviesUrl: 'http://www.omdbapi.com/?apikey={}&s=batman'
+        moviesUrl: 'http://www.omdbapi.com/?apikey={OMDb_API_key}&s=batman'
     };
 
     //instead of bind this to the handleGetMovies method
