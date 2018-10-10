@@ -72,7 +72,7 @@ class Movies extends Component {
                     {
                         this.state.movieView &&
                         <div>
-                            <FontAwesomeIcon className='fa-2x back-button' onClick={this.handleMovieSelect} icon={faArrowLeft} />
+                            <FontAwesomeIcon className='dim fa-2x back-button' onClick={this.handleMovieSelect} icon={faArrowLeft} />
                             <MovieDetail imdbId={this.state.selectedMovieId} />
                         </div>
                     }

@@ -10,7 +10,7 @@ class Movie extends Component {
             backgroundImage: 'url(' + this.props.poster + ')'
         };
         return (
-            <div onClick={this.handleMovieSelected} style={divStyle} className="movie">
+            <div onClick={this.handleMovieSelected} style={divStyle} className="dim movie">
                 <div>
                     <span>
                         <div className="f6 fw2">{this.props.type}</div>

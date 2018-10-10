@@ -45,6 +45,7 @@ code {
 }
 
 .movie{
+  cursor: pointer;
   flex: 1;
   display: grid;
   width: 100%;
@@ -68,6 +69,7 @@ code {
   margin: 15px 15px;
   position: absolute;
   color: #ffffff;
+  cursor: pointer;
 }
 
 .movie-details{
