@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 class Movie extends Component {
     state = {};
     render() {
-        var divStyle = {
+        let divStyle = {
             backgroundImage: 'url(' + this.props.poster + ')'
         };
         return (
