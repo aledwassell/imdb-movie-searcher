@@ -20,6 +20,7 @@ class MovieDetail extends Component {
                     director: resp.data.Director
                 });
             }).then(() => {
+                // reset movieUrl
             this.setState({moviesUrl: `http://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&i=`});
         });
     };

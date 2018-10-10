@@ -40,12 +40,14 @@ class Movies extends Component {
                 this.setState({movies: ts});
 
             }).then(() => {
+                // reset movieUrl
             this.setState({moviesUrl: `http://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&s=`});
         });
     };
     handleMovieSelect = (movieId) => {
         console.log(movieId);
         this.setState({selectedMovieId: movieId});
+        // toggle views, list to single movie view
         this.setState(prevState => ({
             movieView: !prevState.movieView
         }));
