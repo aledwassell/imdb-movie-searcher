@@ -7,7 +7,6 @@ class Search extends Component {
         this.setState({value: event.target.value});
     };
     handleSubmit = (event) => {
-        console.log(this.state.value);
         this.props.getMovies(this.state.value);
         event.preventDefault();
     };

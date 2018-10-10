@@ -2,12 +2,15 @@ import React, {Component} from 'react';
 
 class Movie extends Component {
     state = {};
+    handleMovieSelected = () => {
+        this.props.updateView(this.props.imdbID);
+    };
     render() {
         let divStyle = {
             backgroundImage: 'url(' + this.props.poster + ')'
         };
         return (
-            <div style={divStyle} className="movie">
+            <div onClick={this.handleMovieSelected} style={divStyle} className="movie">
                 <div>
                     <span>
                         <div className="f6 fw2">{this.props.type}</div>
