@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import ReactTooltip from 'react-tooltip';
 
 class Search extends Component {
     state = {
@@ -14,7 +15,8 @@ class Search extends Component {
         return (
             <form className="search" onSubmit={this.handleSubmit}>
                 <label>
-                    <input placeholder="search" type="text" name="name" onChange={this.handleChange}/>
+                    <input onChange={this.handleChange} placeholder="search" type="text" name="name" data-tip="Movie search" data-for="tooltip"/>
+                    <ReactTooltip id='tooltip' className="react-tooltip" getContent={() => { return null }}/>
                 </label>
                 <input type="submit" value="Submit"/>
             </form>

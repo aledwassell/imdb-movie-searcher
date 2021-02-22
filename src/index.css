@@ -16,9 +16,9 @@ code {
 .main{
   display: grid;
   height: 100vh;
-  grid-template-rows: auto 50px;
+  grid-template-rows: 1fr;
   grid-template-columns: 1fr;
-  grid-template-areas: "movies" "nav";
+  grid-template-areas: "movies";
 }
 
 .movie-container{
@@ -94,4 +94,8 @@ code {
   background-color: #ffffff;
   align-items: center;
   justify-content: space-around;
+}
+
+.react-tooltip{
+  z-index: 200;
 }

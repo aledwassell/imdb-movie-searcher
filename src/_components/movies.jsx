@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import Search from './search';
 import Movie from './movie';
 import MovieDetail from './movieDetail';
-import Nav from './nav';
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faArrowLeft} from '@fortawesome/free-solid-svg-icons';
@@ -78,7 +77,6 @@ class Movies extends Component {
                             <MovieDetail imdbId={this.state.selectedMovieId} />
                         </div>
                     }
-                    <Nav />
                 </div>
             </React.Fragment>
         );

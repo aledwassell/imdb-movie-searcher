@@ -11,7 +11,6 @@ class MovieDetail extends Component {
     handleGetMovieDetails = () => {
         axios.get(this.state.movieUrl += this.props.imdbId)
             .then(resp => {
-                console.log(resp);
                 this.setState({
                     title: resp.data.Title,
                     type: resp.data.Type,
