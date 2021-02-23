@@ -13,7 +13,7 @@ class Movies extends Component {
     state = {
         defaultSearch: 'batman',
         movies: [],
-        moviesUrl: `http://www.omdbapi.com/?apikey=${API_KEY}&s=`,
+        moviesUrl: `https://www.omdbapi.com/?apikey=${API_KEY}&s=`,
         listView: true,
         movieView: false,
         selectedMovieId: ''
@@ -42,7 +42,7 @@ class Movies extends Component {
 
             }).then(() => {
                 // reset movieUrl
-            this.setState({moviesUrl: `http://www.omdbapi.com/?apikey=${API_KEY}&s=`});
+            this.setState({moviesUrl: `https://www.omdbapi.com/?apikey=${API_KEY}&s=`});
         });
     };
     handleMovieSelect = (movieId) => {
