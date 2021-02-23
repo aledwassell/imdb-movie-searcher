@@ -6,7 +6,7 @@ class MovieDetail extends Component {
         title: '',
         type: '',
         poster: '',
-        movieUrl: `http://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&i=`,
+        movieUrl: `https://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&i=`,
     };
     handleGetMovieDetails = () => {
         axios.get(this.state.movieUrl += this.props.imdbId)
@@ -20,7 +20,7 @@ class MovieDetail extends Component {
                 });
             }).then(() => {
                 // reset movieUrl
-            this.setState({moviesUrl: `http://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&i=`});
+            this.setState({moviesUrl: `https://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&i=`});
         });
     };
     componentDidMount(){
