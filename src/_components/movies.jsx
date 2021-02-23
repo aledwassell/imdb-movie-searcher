@@ -6,12 +6,14 @@ import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {faArrowLeft} from '@fortawesome/free-solid-svg-icons';
 
+const API_KEY = '318e5b3b';
+
 class Movies extends Component {
     //state holds all the data the app is going tuse, this data can be mutated using setState()
     state = {
         defaultSearch: 'batman',
         movies: [],
-        moviesUrl: `http://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&s=`,
+        moviesUrl: `http://www.omdbapi.com/?apikey=${API_KEY}&s=`,
         listView: true,
         movieView: false,
         selectedMovieId: ''
@@ -40,7 +42,7 @@ class Movies extends Component {
 
             }).then(() => {
                 // reset movieUrl
-            this.setState({moviesUrl: `http://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&s=`});
+            this.setState({moviesUrl: `http://www.omdbapi.com/?apikey=${API_KEY}&s=`});
         });
     };
     handleMovieSelect = (movieId) => {
