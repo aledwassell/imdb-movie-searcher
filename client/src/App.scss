@@ -1,0 +1,44 @@
+.app {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.moviesList {
+    overflow-y: scroll;
+    width: 100%;
+}
+
+.movie {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    img {
+        max-width: 200px;
+    }
+}
+
+.movie-selected {
+    @extend .movie;
+    img {
+        max-width: none;
+    }
+    .movie-icon-button {
+        position: absolute;
+        right: 5;
+        top: 5;
+    }
+}
+
+.error {
+    color: red;
+}
+
+.input {
+    display: flex;
+    justify-self: center;
+}
