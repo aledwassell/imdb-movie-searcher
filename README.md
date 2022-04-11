@@ -39,10 +39,10 @@ Loads the model weights.
 ___
 # React front end app
 
-## .env and IMDB API key
-You will need to visit [IMDB API](https://imdb-api.com/API) and get a freely available API key and then make a .env file in the client directory.
+## .env and OMDBb API key
+You will need to visit [OMDb API](https://www.omdbapi.com/) and get a freely available API key and then make a .env file in the client directory.
 
-.env should contain `REACT_APP_API_KEY=<IMDB API key>`
+.env should contain `REACT_APP_API_KEY=<OMDb API key>`
 
 ## Available Scripts
 

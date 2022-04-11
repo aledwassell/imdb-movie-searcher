@@ -49,7 +49,7 @@ class App extends React.Component<Props, State> {
       positiveReview: false,
     };
     this.handleMovieSearch = this.handleMovieSearch.bind(this);
-    this.handleSubmitReview = this.handleSubmitReview.bind(this);
+    this.handlePredictReview = this.handlePredictReview.bind(this);
     this.handleSelectedMoview = this.handleSelectedMoview.bind(this);
   }
 
@@ -75,7 +75,7 @@ class App extends React.Component<Props, State> {
     this.setState({ selectedMovieId });
   }
 
-  handleSubmitReview(text: string) {
+  handlePredictReview(text: string) {
     this.setState({ loading: true });
     fetch("/predict", {
       method: "POST",
@@ -114,12 +114,11 @@ class App extends React.Component<Props, State> {
           }}
         >
           <TextAreaField
-            submit={this.handleSubmitReview}
+            submit={this.handlePredictReview}
             placeholder="Write review"
           />
           {this.state.positiveReview ? <ThumbUp /> : <ThumbDown />}
         </div>
-        <button>Submit review</button>
       </div>
     );
     const movieRender = this.state.selectedMovieId ? (
