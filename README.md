@@ -20,19 +20,19 @@ or simply run:
 
 ## API endpoints
 
-####`/train` POST
+###`/train` POST
 Trains the model.
 
-####`/predict` POST
+###`/predict` POST
 Make prediction with request body `{"text": "This movie is not very good. I won't see it again"}`.
 
-####`/evaluate-model` GET
+###`/evaluate-model` GET
 Returns the model accuracy eg `{"results": {"loss": 0.75, "accuracy": 0.62}}`.
 
-####`/save-model-weights` GET
+###`/save-model-weights` GET
 Saves the trained weights to a file called model_weights.h5.
 
-####`/load-model-weights` GET
+###`/load-model-weights` GET
 Loads the model weights.
 
 

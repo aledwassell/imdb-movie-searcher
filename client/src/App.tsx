@@ -3,15 +3,19 @@ import "./App.scss";
 import { InputField } from "./components/input";
 import { List } from "./components/list";
 import { Movie } from "./components/movie";
+import { TextAreaField } from "./components/text_area";
+import { ThumbUp, ThumbDown } from "@mui/icons-material";
 
 interface Props {
   propA?: number;
 }
 export interface State {
+  loading: boolean;
   movies: any[] | null;
   moviesError: string | null;
   moviesUrl: string;
   selectedMovieId: string | null;
+  positiveReview: boolean;
 }
 
 export interface ImdbMovie {
@@ -29,22 +33,28 @@ export interface ImdbResp {
   totalResults?: string;
 }
 
+export interface PredictionResp {
+  prediction: number;
+}
+
 class App extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
-    console.log(process.env);
     this.state = {
+      loading: false,
       movies: [],
       moviesError: null,
       moviesUrl: `https://www.omdbapi.com/?apikey=${process.env.REACT_APP_API_KEY}&s=`,
       selectedMovieId: null,
+      positiveReview: false,
     };
     this.handleMovieSearch = this.handleMovieSearch.bind(this);
+    this.handleSubmitReview = this.handleSubmitReview.bind(this);
     this.handleSelectedMoview = this.handleSelectedMoview.bind(this);
   }
 
   handleMovieSearch(text: string) {
-    this.setState({ moviesError: null, selectedMovieId: null });
+    this.setState({ loading: true, moviesError: null, selectedMovieId: null });
     fetch(`${this.state.moviesUrl}${text}`)
       .then((resp: Response) => {
         if (resp.ok) {
@@ -54,11 +64,9 @@ class App extends React.Component<Props, State> {
       })
       .then((resp: ImdbResp) => {
         if (resp.Response === "True") {
-          console.log(resp);
-          this.setState({ movies: resp.Search ?? null });
+          this.setState({ loading: false, movies: resp.Search ?? null });
         } else {
-          console.log(resp);
-          this.setState({ moviesError: resp.Error ?? null });
+          this.setState({ loading: false, moviesError: resp.Error ?? null });
         }
       });
   }
@@ -68,6 +76,7 @@ class App extends React.Component<Props, State> {
   }
 
   handleSubmitReview(text: string) {
+    this.setState({ loading: true });
     fetch("/predict", {
       method: "POST",
       mode: "cors",
@@ -82,24 +91,35 @@ class App extends React.Component<Props, State> {
         }
         throw resp;
       })
-      .then((resp: any) => {
-        console.log(resp);
+      .then(({ prediction }) => {
+        this.setState({ positiveReview: prediction >= 50 });
       });
   }
 
   render() {
     const movie = (
-      <div>
+      <div className="movie">
         <Movie
           movie={this.state.movies?.find(
             (m) => m.imdbID === this.state.selectedMovieId
           )}
           clearSelection={() => this.setState({ selectedMovieId: null })}
         />
-        <InputField
-          submit={this.handleSubmitReview}
-          placeholder="Submit review"
-        />
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            gap: "20px",
+          }}
+        >
+          <TextAreaField
+            submit={this.handleSubmitReview}
+            placeholder="Write review"
+          />
+          {this.state.positiveReview ? <ThumbUp /> : <ThumbDown />}
+        </div>
+        <button>Submit review</button>
       </div>
     );
     const movieRender = this.state.selectedMovieId ? (

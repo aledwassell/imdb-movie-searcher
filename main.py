@@ -62,7 +62,7 @@ async def train_model(epochs: int = 10):
 async def make_prediction(req: PredictBody):
     if req.text == "":
         return {"error": "Please provide movie review text"}
-    result = round(predict(req.text)[0] * 100, 2)
+    result = round(predict(req.text)[0] * 100)
     return {"prediction": result}
 
 

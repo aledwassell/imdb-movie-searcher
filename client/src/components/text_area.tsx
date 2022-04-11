@@ -20,20 +20,20 @@ export interface Props {
   placeholder: string | undefined;
 }
 
-export const InputField = (props: Props) => {
+export const TextAreaField = (props: Props) => {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     props.submit(event.target.value);
-
   };
 
   return (
-    <form className="input">
-      <input
+    <form className="input" style={{ width: '100%' }}>
+      <textarea
+        style={{ width: '100%', height: 60 }}
         onChange={debounce(async (event: any) => {
           await handleChange(event);
         }, 500)}
         placeholder={props.placeholder}
-        name="search"
+        name="review"
       />
     </form>
   );
