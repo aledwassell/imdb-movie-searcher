@@ -35,7 +35,6 @@ Saves the trained weights to a file called model_weights.h5.
 #### `/load-model-weights` GET
 Loads the model weights.
 
-
 ___
 # React front end app
 
@@ -50,3 +49,14 @@ You will need to visit [OMDb API](https://www.omdbapi.com/) and get a freely ava
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+___
+# TODO
+
+## React app
+
+- Improve the styles of the app, at the moment it is a little more functionality over style.
+
+## API
+
+- Improve how the model runs sentiment analysis on the provided text, at the moment it is really a bad at telling whether the review text is positive or negative.
